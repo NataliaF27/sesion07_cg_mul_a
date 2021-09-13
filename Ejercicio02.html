@@ -1,0 +1,57 @@
+ <div>
+
+  <button onclick="draw()">Trazar</button>
+  <button onclick="rotartrazar(1)">Girar rectangulo 1</button>
+  <button onclick="rotartrazar(2)">Girar rectangulo 2</button>
+
+</div>
+<canvas id="canvas"/>
+<script type="text/javascript">
+  var ctx = document.getElementById('canvas').getContext('2d');
+
+  function deg2rad(g){
+   return (Math.PI / 180)*g;
+
+  }
+  function rotartrazar(n){
+    if (n == 1){
+     ctx.save();
+       ctx.clearRect(30, 30, 100, 100);
+       
+       ctx.translate(80, 80); 
+                          
+       ctx.rotate(deg2rad (-45)); 
+       ctx.translate(-80, -80);  
+       ctx.fillStyle = '#0095DD';
+       ctx.fillRect(30, 30, 100, 100);
+       ctx.restore();
+    }
+    if(n==2){
+      ctx.clearRect(150, 30, 100, 100);
+
+      ctx.translate(200, 80); 
+                          
+      ctx.rotate(deg2rad (65)); 
+      ctx.translate(-200, -80);
+      ctx.fillStyle = '#0095DD';
+      ctx.fillRect(150, 30, 100, 100);
+
+    }
+
+
+  }
+function draw() {
+  
+  
+  ctx.save();
+  
+  ctx.fillStyle = '#0095DD';
+  ctx.fillRect(30, 30, 100, 100);
+  
+
+ 
+  ctx.fillStyle = '#0095DD';
+  ctx.fillRect(150, 30, 100, 100);
+
+}
+</script>
